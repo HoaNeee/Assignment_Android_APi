@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/img_item_cart"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/img" />
+        <LinearLayout
+            android:id="@+id/ln1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/img_item_cart"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:id="@+id/tv_name_item_cart"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Tên món ăn"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="số lượng: "
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp"
+                    />
+                <TextView
+                    android:id="@+id/tv_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_price_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100000"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_marginStart="7dp"
+            android:textColor="@color/red"
+            android:layout_toRightOf="@+id/ln1"
+            android:layout_marginTop="33dp"
+            />
+
+        <ImageView
+            android:id="@+id/img_del"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/tv_price_cart"
+            android:src="@drawable/baseline_delete_24" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
