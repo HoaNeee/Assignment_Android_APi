@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="10dp"
+    >
+    <TextView
+        android:id="@+id/tv_name_food_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên món ăn: "
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" - "
+        />
+    <TextView
+        android:id="@+id/tv_quantity_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7"
+        />
+
+
+</LinearLayout>

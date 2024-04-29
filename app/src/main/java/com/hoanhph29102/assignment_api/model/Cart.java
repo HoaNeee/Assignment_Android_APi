@@ -1,8 +1,15 @@
 package com.hoanhph29102.assignment_api.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Cart {
+    @SerializedName("_id")
     private String _id;
+    @SerializedName("foodId")
     private String Food_id;
+    @SerializedName("userId")
+    private String UserID;
+    @SerializedName("quantity")
     private int quantity;
     private String nameFood;
     private double priceFood;
@@ -17,14 +24,31 @@ public class Cart {
         this.priceFood = priceFood;
     }
 
-    public Cart(int quantity, String nameFood, double priceFood,String imageFood) {
-        this.imageFood = imageFood;
+    public Cart(String food_id, int quantity, String nameFood, double priceFood, String imageFood) {
+        this.Food_id = food_id;
         this.quantity = quantity;
         this.nameFood = nameFood;
         this.priceFood = priceFood;
+        this.imageFood = imageFood;
     }
-    public Cart(){
 
+    public Cart(){
+    }
+    public Cart(String food_id, int quantity,String userID, String nameFood, double priceFood, String imageFood) {
+        this.Food_id = food_id;
+        this.quantity = quantity;
+        this.UserID = userID;
+        this.nameFood = nameFood;
+        this.priceFood = priceFood;
+        this.imageFood = imageFood;
+    }
+
+    public String getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(String userID) {
+        UserID = userID;
     }
 
     public String get_id() {

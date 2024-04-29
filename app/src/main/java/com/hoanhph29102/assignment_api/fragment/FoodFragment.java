@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,11 +55,13 @@ public class FoodFragment extends Fragment {
     List<Food> listFood;
     List<Cart> listCart;
     private CartManager cartManager;
+    private AlertDialog progressDialog;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        showDialogProgress();
         return inflater.inflate(R.layout.fragment_product,container,false);
     }
 
@@ -77,22 +80,23 @@ public class FoodFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
         rcFood.setLayoutManager(gridLayoutManager);
 
-        rcFood.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-                int direction = dy > 0 ? DIRECTION_UP : DIRECTION_DOWN;
-                // Lấy vị trí cuối cùng của item hiển thị
-                lastVisibleItemPosition = ((GridLayoutManager) recyclerView.getLayoutManager()).findLastVisibleItemPosition();
-                // Nếu hướng cuộn là lên và thanh toolbar hoặc bottom navigation đang hiện thì ẩn chúng đi
-                if (direction == DIRECTION_UP && isBottomNavigationVisible) {
-                    hideBottomNavi();
-                } else if (direction == DIRECTION_DOWN && !isBottomNavigationVisible) {
-                    showBottomNavi();
-                }
-            }
-        });
+        //an bottom khi cuon
+//        rcFood.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//
+//                int direction = dy > 0 ? DIRECTION_UP : DIRECTION_DOWN;
+//                // Lấy vị trí cuối cùng của item hiển thị
+//                lastVisibleItemPosition = ((GridLayoutManager) recyclerView.getLayoutManager()).findLastVisibleItemPosition();
+//                // Nếu hướng cuộn là lên và thanh toolbar hoặc bottom navigation đang hiện thì ẩn chúng đi
+//                if (direction == DIRECTION_UP && isBottomNavigationVisible) {
+//                    hideBottomNavi();
+//                } else if (direction == DIRECTION_DOWN && !isBottomNavigationVisible) {
+//                    showBottomNavi();
+//                }
+//            }
+//        });
 
 
         fetchFood();
@@ -111,12 +115,14 @@ public class FoodFragment extends Fragment {
                     listFood = response.body();
                     foodAdapter = new FoodAdapter(getContext(),listFood);
                     rcFood.setAdapter(foodAdapter);
+                    dismissDialogProgress();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Food>> call, Throwable t) {
                 Log.e("foodFragment", t.getMessage());
+                showDialogProgress();
             }
         });
     }
@@ -133,6 +139,22 @@ public class FoodFragment extends Fragment {
         if (getActivity() != null) {
             ((MainActivity) getActivity()).showBottomNavi();
             isBottomNavigationVisible = true;
+        }
+    }
+
+    private void showDialogProgress(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.progress_dialog, null);
+
+        builder.setView(dialogView);
+        builder.setCancelable(false);
+        progressDialog = builder.create();
+        progressDialog.show();
+    }
+    private void dismissDialogProgress(){
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
         }
     }
 }

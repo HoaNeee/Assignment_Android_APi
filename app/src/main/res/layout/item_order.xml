@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="6dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã đơn hàng: "
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/tv_id_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="123123123"
+                android:textSize="14dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên khách hàng: "
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/tv_ten_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sieuhoa"
+                android:textSize="17dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SDT khách hàng: "
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/tv_sdt_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vui lòng cập nhật"
+                android:textSize="17dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Địa chỉ khách hàng: "
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/tv_address_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vui lòng cập nhật"
+                android:textSize="17dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngày tạo: "
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/tv_ngay_tao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="16 - 1 - 2090"
+                android:textSize="17dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tồng tiền: "
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/tv_tong_tien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9999999"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Danh sách sản phẩm: "
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/lv_danh_sach_sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sieuhoa"
+                android:textSize="17dp"
+                android:layout_marginLeft="20dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trạng thái: "
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chưa thanh toán"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ln_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_login"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="30dp"
+                >
+                <TextView
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:text="Hủy"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_login"
+                android:layout_marginLeft="30dp"
+                >
+                <TextView
+                    android:id="@+id/btn_confirm"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:text="Xác nhận"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

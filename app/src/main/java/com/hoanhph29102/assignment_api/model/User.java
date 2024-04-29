@@ -11,6 +11,12 @@ public class User {
     private String email;
     @SerializedName("Password")
     private String password;
+    @SerializedName("Address")
+    private String address;
+    @SerializedName("Phone")
+    private String phone;
+    @SerializedName("ImageUser")
+    private String image;
 
     public User() {
     }
@@ -21,11 +27,53 @@ public class User {
 
     }
 
-    public User(String _id, String name, String email, String password) {
+    public User(String _id, String name, String email, String password, String address, String phone, String image) {
         this._id = _id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.address = address;
+        this.phone = phone;
+        this.image = image;
+    }
+
+    public User(String name, String email, String address, String phone, String image) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+        this.image = image;
+    }
+
+    public User(String name, String email, String address, String phone) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String get_id() {

@@ -11,26 +11,34 @@ import com.hoanhph29102.assignment_api.fragment.FoodFragment;
 import com.hoanhph29102.assignment_api.fragment.UserFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
+    private FoodFragment foodFragment;
+    private CartFragment cartFragment;
+    private OrderFragment orderFragment;
+    private UserFragment userFragment;
 
-
-    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, FoodFragment foodFragment, CartFragment cartFragment, OrderFragment orderFragment, UserFragment userFragment) {
         super(fragmentActivity);
+        this.foodFragment = foodFragment;
+        this.cartFragment = cartFragment;
+        this.orderFragment = orderFragment;
+        this.userFragment = userFragment;
     }
+
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
         switch (position){
             case 0:
-                return new FoodFragment();
+                return foodFragment;
             case 1:
-                return new CartFragment();
+                return cartFragment;
             case 2:
-                return new OrderFragment();
+                return orderFragment;
             case 3:
-                return new UserFragment();
+                return userFragment;
             default:
-                return new FoodFragment();
+                return foodFragment;
 
         }
 

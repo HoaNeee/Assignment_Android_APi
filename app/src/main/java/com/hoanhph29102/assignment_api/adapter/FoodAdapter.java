@@ -38,6 +38,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.viewHolder>{
     List<Food> listFood;
 
     CartManager cartManager;
+    SharedPreferences pref;
     public FoodAdapter(Context context, List<Food> listFood) {
         this.context = context;
         this.listFood = listFood;
@@ -66,14 +67,44 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.viewHolder>{
         holder.fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               addToCart(food);
-
+               //addToCart(food);
+                addToCartAPI(food);
             }
         });
     }
 
+    //call api
+    private void addToCartAPI(Food food){
+        // public Cart(String food_id, int quantity, String nameFood, double priceFood, String imageFood) {
 
-    public void addToCart(Food food){
+        pref = context.getSharedPreferences("User_Info", Context.MODE_PRIVATE);
+
+        String id = pref.getString("userID", "");
+
+        Cart cart = new Cart(food.get_id(),1,id,food.getName(),food.getPrice(),food.getImage());
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        Call<Void> call = apiService.addToCartWithUser(cart,id);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()){
+                    Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(context, "Khong thể kết nối đến máy chủ", Toast.LENGTH_SHORT).show();
+                Log.e("Cart","ADD to CART"+t.getMessage());
+            }
+        });
+    }
+
+    //lưu trữ tạm thời
+    private void addToCart(Food food){
         if (CartManager.listCart.size() >0){
             int quantity = 1;
             boolean flag = false;

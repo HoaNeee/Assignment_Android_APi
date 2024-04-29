@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,10 +9,10 @@
     android:background="@color/gray"
     tools:context=".MainActivity">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         >
 
         <RelativeLayout
@@ -47,7 +47,7 @@
                             android:id="@+id/icon_logout"
                             android:layout_width="50dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/exit"
+                            android:src="@drawable/user"
                             android:layout_gravity="end"
                             android:paddingStart="16dp"
                             android:paddingEnd="16dp"
@@ -57,31 +57,63 @@
             </com.google.android.material.appbar.AppBarLayout>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:id="@+id/relative_layout"
-        >
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
+<!--        <androidx.viewpager2.widget.ViewPager2-->
+<!--            android:id="@+id/view_pager"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" />-->
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_container_main"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:elevation="8dp"
-            app:itemActiveIndicatorStyle="@color/gray"
-            app:itemIconSize="30dp"
-            android:background="#DCE1FF"
-            app:itemIconTint="@drawable/item_select"
-            app:itemTextColor="@drawable/item_select"
-            app:labelVisibilityMode="unlabeled"
-            app:menu="@menu/menu"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ln_main_toobar"
+
             />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/ln_bottom_navi"
+            >
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:elevation="8dp"
+                app:itemActiveIndicatorStyle="@color/gray"
+                app:itemIconSize="30dp"
+                android:background="#DCE1FF"
+                app:itemIconTint="@drawable/item_select"
+                app:itemTextColor="@drawable/item_select"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/menu"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ln_arr_up"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone"
+            android:background="#DCE1FF">
+
+            <ImageView
+                android:id="@+id/img_arr_up"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/arrup"
+                android:elevation="0dp"
+                />
+        </RelativeLayout>
     </RelativeLayout>
-</LinearLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</FrameLayout>
